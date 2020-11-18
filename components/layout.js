@@ -3,10 +3,10 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Homer Simpson'
-export const siteTitle = 'Next.js Sample Website'
+export const name = 'Shawn Nolan'
+export const siteTitle = 'Software Engineer'
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, skill }) {
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -28,7 +28,7 @@ export default function Layout({ children, home }) {
 				{home ? (
 					<>
 						<img
-							src="/images/profile.jpg"
+							src="/images/profile2.JPG"
 							className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
 							alt={name}
 						/>
@@ -39,7 +39,7 @@ export default function Layout({ children, home }) {
 						<Link href="/">
 							<a>
 								<img
-									src="/images/profile.jpg"
+									src="/images/profile2.JPG"
 									className={`${styles.headerImage} ${utilStyles.borderCircle}`}
 									alt={name}
 								/>
@@ -54,6 +54,13 @@ export default function Layout({ children, home }) {
 				)}
 			</header>
 			<main>{children}</main>
+			{!home && skill && (
+				<div className={styles.backToHome}>
+					<Link href="/skills">
+						<a>← Back to skills</a>
+					</Link>
+				</div>
+			)}
 			{!home && (
 				<div className={styles.backToHome}>
 					<Link href="/">
