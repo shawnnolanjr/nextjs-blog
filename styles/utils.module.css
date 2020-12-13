@@ -51,6 +51,6 @@
     color: #999;
 }
 
-.someLinks {
-    color: blue;
+.someLinks a {
+    color: blue !important;
 }

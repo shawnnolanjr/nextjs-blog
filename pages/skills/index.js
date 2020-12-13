@@ -8,18 +8,23 @@ export default function Skills({ skillData }) {
 	return (
 		<Layout>
 			<Head>
-				<title>{name} {siteTitle} - Software Engineer - Skills</title>
+				<title>{name} - {siteTitle} - Skills</title>
 			</Head>
 			<section className={utilStyles.headingMd}>
 				<h1>My Skills</h1>
 				<ul>
-					{skillData.map(({ id, title }) => (
-						<li className={utilStyles.listItem} key={id}>
-							<Link href={`/skills/${title.replace(' ', '-').toLowerCase()}`}>
-								<a>{title}</a>
-							</Link>
-						</li>
-					))}
+					{skillData.map(({ id, title, content }) => {
+						return (
+							<li className={`${utilStyles.listItem} animate__animated animate__bounceIn`} key={id}>
+								{content && (
+									<Link href={`/skills/${title.replace(' ', '-').toLowerCase()}`}>
+										<a>{title}</a>
+									</Link>
+								)}
+								{!content && ( <>{title}</> ) }
+							</li>
+						)
+					})}
 				</ul>
 			</section>
 		</Layout>

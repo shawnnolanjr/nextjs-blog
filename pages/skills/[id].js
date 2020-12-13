@@ -9,7 +9,7 @@ export default function Skill({ skillData }) {
 			<Head>
 				<title>{name} - {siteTitle} - {skillData.title}</title>
 			</Head>
-			<article>
+			<article className="animate__animated animate__bounceInRight">
 				<h1 className={utilStyles.headingXl}>{skillData.title}</h1>
 				<div dangerouslySetInnerHTML={{ __html: skillData.content }} />
 			</article>

@@ -25,14 +25,19 @@ export default function Layout({ children, home, skill }) {
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
 			<header className={styles.header}>
+				<div>
+					<><Link href="https://github.com/shawnnolanjr"><a target="_blank">Github</a></Link> | </>
+					<><Link href="https://twitter.com/intractvmedia"><a target="_blank">Twitter</a></Link> | </>
+					<><Link href="https://www.linkedin.com/in/snolan760"><a target="_blank">LinkedIn</a></Link></>
+				</div>
 				{home ? (
 					<>
 						<img
 							src="/images/profile2.JPG"
-							className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+							className={`${styles.headerHomeImage} ${utilStyles.borderCircle} animate__animated animate__fadeInLeft`}
 							alt={name}
 						/>
-						<h1 className={utilStyles.heading2Xl}>{name}</h1>
+						<h1 className={`${utilStyles.heading2Xl} animate__animated animate__fadeInLeft`}>{name}</h1>
 					</>
 				) : (
 					<>
@@ -52,22 +57,12 @@ export default function Layout({ children, home, skill }) {
 						</h2>
 					</>
 				)}
+				<div>
+					{!home && skill && ( <><Link href="/skills"><a>← Skills</a></Link> | </> )}
+					{!home && ( <><Link href="/"><a>Home</a></Link></> )}
+				</div>
 			</header>
 			<main>{children}</main>
-			{!home && skill && (
-				<div className={styles.backToHome}>
-					<Link href="/skills">
-						<a>← Back to skills</a>
-					</Link>
-				</div>
-			)}
-			{!home && (
-				<div className={styles.backToHome}>
-					<Link href="/">
-						<a>← Back to home</a>
-					</Link>
-				</div>
-			)}
 		</div>
 	)
 }
